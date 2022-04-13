@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
@@ -40,8 +41,9 @@ public class SedeController {
     }
 
     @PostMapping("/crear")
-    public String crearSede(Sede sede){
+    public String crearSede(Sede sede, RedirectAttributes attributes){
         sedeRepository.save(sede);
+        attributes.addFlashAttribute("msg","Sede creada exitosamente");
         return "redirect:/sedes/listarSedes";
     }
 
@@ -58,15 +60,17 @@ public class SedeController {
     }
 
     @PostMapping("/updateSede")
-    public String updateSede(Sede sede){
+    public String updateSede(Sede sede, RedirectAttributes attributes){
         sedeRepository.save(sede);
+        attributes.addFlashAttribute("msg1","Sede editada exitosamente");
         return "redirect:/sedes/listarSedes";
     }
 
 
     @GetMapping("/borrar")
-    public String borrarSede(@RequestParam("id") String id){
+    public String borrarSede(@RequestParam("id") String id,RedirectAttributes attributes){
         sedeRepository.deleteById(Integer.parseInt(id));
+        attributes.addFlashAttribute("msg2","Sede borrada exitosamente");
         return "redirect:/sedes/listarSedes";
     }
 
