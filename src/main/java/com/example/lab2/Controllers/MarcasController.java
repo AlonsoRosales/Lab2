@@ -27,7 +27,7 @@ public class MarcasController {
     }
 
 
-    @PostMapping("save")
+    @PostMapping("/save")
     public String guardarMarca(Marcas marcas,RedirectAttributes attr) {
         if (marcas.getId() == 0) {
             attr.addFlashAttribute("msg", "Marca creada exitosamente");
@@ -44,7 +44,7 @@ public class MarcasController {
     }
 
 
-    @GetMapping("edit")
+    @GetMapping("/edit")
     public String editarMarcas(Model model,@RequestParam("id") Integer id) {
         Optional<Marcas> optMarca = marcasRepository.findById(id);
         if(optMarca.isPresent()){
@@ -56,7 +56,7 @@ public class MarcasController {
         }
     }
 
-    @PostMapping("delete")
+    @PostMapping("/delete")
     public String borrarMarcas(Model model, @RequestParam("id") int id, RedirectAttributes attr) {
         Optional<Marcas> optMarca = marcasRepository.findById(id);
         if(optMarca.isPresent()){
