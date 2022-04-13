@@ -14,8 +14,8 @@
         <h1 class="pb-2 mb-4 border-bottom">Nuevo Tipo </h1>
         <form method="post" th:action="@{'/tipos/crearTipos'}" class="col-4">
             <div class="mb-3">
-                <label for="nombreTipo" class="form-label">Nombre del tipo</label>
-                <input name="nombreTipo" type="text" class="form-control" id="nombreTipo">
+                <label for="nombre" class="form-label">Nombre del tipo</label>
+                <input name="nombre" type="text" class="form-control" id="nombre">
             </div>
 
             <a th:href="@{'/tipos/listarTipos'}" class="btn btn-danger">Cancelar</a>
