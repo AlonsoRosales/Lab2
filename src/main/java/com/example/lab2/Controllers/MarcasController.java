@@ -33,7 +33,7 @@ public class MarcasController {
         if (marcas.getId() == 0) {
             attr.addFlashAttribute("msg", "Marca creada exitosamente");
         } else {
-            attr.addFlashAttribute("msg", "Marca actualizada exitosamente");
+            attr.addFlashAttribute("msg1", "Marca actualizada exitosamente");
         }
         marcasRepository.save(marcas);
         return "redirect:/marcas";
@@ -62,7 +62,7 @@ public class MarcasController {
         Optional<Marcas> optMarca = marcasRepository.findById(id);
         if(optMarca.isPresent()){
             marcasRepository.deleteById(id);
-            attr.addFlashAttribute("msg","Marca borrada exitosamente");
+            attr.addFlashAttribute("msg2","Marca borrada exitosamente");
         }
          return "redirect:/marcas";
     }
