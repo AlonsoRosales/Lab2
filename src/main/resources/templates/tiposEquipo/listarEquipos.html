@@ -13,9 +13,7 @@
 <main>
     <div class="container px-4 py-5">
         <h1 class="pb-2 border-bottom">Lista de Tipos</h1>
-        <a class="btn btn-primary mt-4 mb-4" th:href="@{'/sedes/nuevo'}">Nuevo Tipo</a>
-        <!--div class="alert alert-success" th:text="${msg}" th:if="${msg != null}"></div>
-        <div class="alert alert-warning" th:if="${TransportistaPrueba != null}" th:text="${TransportistaPrueba.getCompanyname()}"></div-->
+        <a class="btn btn-primary mt-4 mb-4" th:href="@{'/tipos/nuevoTipos'}">Nuevo Tipo</a>
         <table class="table table-sm">
             <tr>
                 <th>#</th>
@@ -27,9 +25,9 @@
             <tr th:each="Tipo, i : ${listaTipos}">
                 <td th:text="${i.index + 1}"></td>
                 <td th:text="${Tipo.nombre}"></td>
-                <td><a class="btn btn-primary" th:href="@{'/sedes/editar' + '?id=' + ${Tipo.id}}">Editar</a>
+                <td><a class="btn btn-primary" th:href="@{'/tipos/editarTipos' + '?id=' + ${Tipo.id}}">Editar</a>
                 </td>
-                <td><a class="btn btn-danger" th:href="@{'/sedes/borrar' + '?id=' + ${Tipo.id}}">Borrar</a>
+                <td><a class="btn btn-danger" th:href="@{'/tipos/borrarTipos' + '?id=' + ${Tipo.id}}">Borrar</a>
                 </td>
             </tr>
 
