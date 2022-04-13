@@ -10,7 +10,7 @@
         <main>
             <div class="container px-4 py-5">
                 <h1 class="pb-2 mb-3 border-bottom">Editar Marca</h1>
-                <form method="post" th:action="@{'/marcas/save'}" th:object="${marca}" class="mt-2">
+                <form method="post" th:action="@{'/marcas/editar'}" th:object="${marca}" class="mt-2">
                     <input th:field="*{id}" name="id" type="hidden"/>
                     <div class="mb-3">
                         <label class="form-label">Nombre del Producto</label>

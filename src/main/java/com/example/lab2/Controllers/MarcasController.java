@@ -30,11 +30,14 @@ public class MarcasController {
     // Solo funciona si es envia desde edit
     @PostMapping("/save")
     public String guardarMarca(Marcas marcas,RedirectAttributes attr) {
-        if (marcas.getId() == 0) {
-            attr.addFlashAttribute("msg", "Marca creada exitosamente");
-        } else {
-            attr.addFlashAttribute("msg1", "Marca actualizada exitosamente");
-        }
+        attr.addFlashAttribute("msg", "Marca creada exitosamente");
+        marcasRepository.save(marcas);
+        return "redirect:/marcas";
+    }
+
+    @PostMapping("/editar")
+    public String editarMarca(Marcas marcas,RedirectAttributes attr) {
+        attr.addFlashAttribute("msg1", "Marca actualizada exitosamente");
         marcasRepository.save(marcas);
         return "redirect:/marcas";
     }
@@ -57,8 +60,8 @@ public class MarcasController {
         }
     }
 
-    @PostMapping("/delete")
-    public String borrarMarcas(Model model, @RequestParam("id") int id, RedirectAttributes attr) {
+    @GetMapping("/delete")
+    public String borrarMarcas(@RequestParam("id") int id, RedirectAttributes attr) {
         Optional<Marcas> optMarca = marcasRepository.findById(id);
         if(optMarca.isPresent()){
             marcasRepository.deleteById(id);
@@ -66,8 +69,6 @@ public class MarcasController {
         }
          return "redirect:/marcas";
     }
-
-
 
 
 }
