@@ -59,4 +59,12 @@ public class TrabajadoresController {
         }
     }
 
+    @GetMapping("/borrar")
+    public String borrarTrabajadores(@RequestParam("dni") String dni) {
+        Optional<Trabajadores> optionalTrabajador = trabajadoresRepository.findById(dni);
+        if (optionalTrabajador.isPresent()) {
+            trabajadoresRepository.deleteById(dni);
+        }
+        return "redirect:/trabajadores/listar";
+    }
 }
