@@ -12,7 +12,6 @@
                 <h1 class="pb-2 border-bottom">Lista de Marcas</h1>
                 <div class="d-flex mt-3 mb-4">
                     <a class="btn btn-primary" th:href="@{'/marcas/new'}">Nueva Marca</a>
-                    <a class="btn btn-secondary ms-auto" th:href="@{'/'}">Regresar</a>
                 </div>
                 <div th:if="${msg != null}" th:text="${msg}" class="alert alert-success" role="alert"></div>
                 <table class="table">
