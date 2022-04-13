@@ -2,7 +2,9 @@ package com.example.lab2.Controllers;
 
 
 import com.example.lab2.Entity.Sede;
+import com.example.lab2.Entity.Trabajadores;
 import com.example.lab2.Repository.SedeRepository;
+import com.example.lab2.Repository.TrabajadoresRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +24,9 @@ public class SedeController {
 
     @Autowired
     SedeRepository sedeRepository;
+
+    @Autowired
+    TrabajadoresRepository trabajadoresRepository;
 
     @GetMapping("")
     public String home(){
@@ -54,6 +59,7 @@ public class SedeController {
         if(sede.isPresent()){
             Sede sede1 = sede.get();
             model.addAttribute("sede",sede1);
+            model.addAttribute("listaTrabajadores",trabajadoresRepository.buscarTrabajadoresPorSede(id));
             return "Sede/editarSede";
         }
         return "redirect:/sedes/listarSedes";

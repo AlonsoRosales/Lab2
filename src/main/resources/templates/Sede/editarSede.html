@@ -26,6 +26,25 @@
                     <button type="submit" class="btn btn-primary">Actualizar</button>
                 </form>
             </div>
+            <div class="container px-4 py-5" >
+                <h1 class="pb-2 border-bottom">Lista de Trabajadores de la Sede</h1>
+                <table class="table table-sm">
+                    <tr>
+                        <th>#</th>
+                        <th>DNI del trabajador</th>
+                        <th>Correo del Trabajador</th>
+                        <th>Nombre del Trabajador</th>
+                        <th>Apellidos del Trabajador</th>
+                    </tr>
+                    <tr th:each="Trabajador, info : ${listaTrabajadores}">
+                        <td th:text="${info.index + 1}"></td>
+                        <td th:text="${Trabajador.dni}"></td>
+                        <td th:text="${Trabajador.correo}"></td>
+                        <td th:text="${Trabajador.nombres}"></td>
+                        <td th:text="${Trabajador.apellidos}"></td>
+                    </tr>
+                </table>
+            </div>
         </main>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
                 integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
