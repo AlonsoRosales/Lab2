@@ -26,7 +26,8 @@ public class MarcasController {
         return "marcas/list";
     }
 
-
+    //EL jpa databinding no está linkeando el objeto marca que llega desde newFrm
+    // Solo funciona si es envia desde edit
     @PostMapping("/save")
     public String guardarMarca(Marcas marcas,RedirectAttributes attr) {
         if (marcas.getId() == 0) {
