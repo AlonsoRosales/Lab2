@@ -12,10 +12,10 @@
 <main>
     <div class="container px-4 py-5">
         <h1 class="pb-2 mb-4 border-bottom">Editar Trabajadores</h1>
-        <form method="post" th:action="@{/trabajadores/save}" class="col-4" th:object="${trabajador}">
+        <form method="post" th:action="@{/trabajadores/edit}" class="col-4" th:object="${trabajador}">
             <div class="mb-3">
                 <label class="form-label">Dni del Trabajador</label>
-                <input type="hidden" th:field="*{dni}" />
+                <input type="text" class="form-control" th:field="*{dni}" readonly/>
             </div>
             <div class="mb-3">
                 <label class="form-label">Correo del Trabajador</label>

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 import java.util.Optional;
@@ -40,7 +41,8 @@ public class TrabajadoresController {
     }
 
     @PostMapping("/save")
-    public String saveTrabajadores(Trabajadores trabajador){
+    public String saveTrabajadores(Trabajadores trabajador, RedirectAttributes attr){
+        attr.addFlashAttribute("msg1","Trabajador creado Exitosamente");
         trabajadoresRepository.save(trabajador);
         return "redirect:/trabajadores/listar";
     }
@@ -59,10 +61,18 @@ public class TrabajadoresController {
         }
     }
 
+    @PostMapping("/edit")
+    public String editTrabajadores(Trabajadores trabajador, RedirectAttributes attr){
+        attr.addFlashAttribute("msg2","Trabajador editado Exitosamente");
+        trabajadoresRepository.save(trabajador);
+        return "redirect:/trabajadores/listar";
+    }
+
     @GetMapping("/borrar")
-    public String borrarTrabajadores(@RequestParam("dni") String dni) {
+    public String borrarTrabajadores(@RequestParam("dni") String dni,RedirectAttributes attr) {
         Optional<Trabajadores> optionalTrabajador = trabajadoresRepository.findById(dni);
         if (optionalTrabajador.isPresent()) {
+            attr.addFlashAttribute("msg3","Trabajador borrado Exitosamente");
             trabajadoresRepository.deleteById(dni);
         }
         return "redirect:/trabajadores/listar";
