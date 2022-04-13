@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 import java.util.Optional;
@@ -42,14 +43,16 @@ public class TiposController {
     }
 
     @PostMapping("/crearTipos")
-    public String crearTipo(Tipo tipo){
+    public String crearTipo(Tipo tipo, RedirectAttributes attributes){
         tipoRepository.save(tipo);
+        attributes.addFlashAttribute("msg","Se ha creado un nuevo Tipo de Equipo");
         return "redirect:/tipos/listarTipos";
     }
 
     @GetMapping("/borrarTipos")
-    public String borrarTipos(@RequestParam("id") String id){
+    public String borrarTipos(@RequestParam("id") String id,RedirectAttributes attributes){
         tipoRepository.deleteById(Integer.parseInt(id));
+        attributes.addFlashAttribute("msg1","Tipo borrado exitosamente");
         return "redirect:/tipos/listarTipos";
     }
 
@@ -69,8 +72,9 @@ public class TiposController {
     }
 
     @PostMapping("/updateTipos")
-    public String updateTipo(Tipo tipo){
+    public String updateTipo(Tipo tipo, RedirectAttributes attributes){
         tipoRepository.save(tipo);
+        attributes.addFlashAttribute("msg2","Tipo editado exitosamente");
         return "redirect:/tipos/listarTipos";
     }
 
