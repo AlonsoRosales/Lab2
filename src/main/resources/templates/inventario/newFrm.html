@@ -12,15 +12,14 @@
         <main>
             <div class="container px-4 py-5">
                 <h1 class="pb-2 mb-4 border-bottom">Editar Inventario</h1>
-                <form method="post" th:action="@{'/inventario/save'}" class="col-4" th:object="${inventario}">
-                    <input type="hidden" th:field="*{id}" />
+                <form method="post" th:action="@{'/inventario/register'}" class="col-4">
                     <div class="mb-3">
-                        <label class="form-label">Nombre del Inventario</label>
-                        <input type="text" class="form-control" th:field="*{nombre}">
+                        <label for="nombreInventario" class="form-label">Nombre del Inventario</label>
+                        <input name="nombre" type="text" class="form-control" id="nombreInventario">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Numero de serie</label>
-                        <input type="text" class="form-control" th:field="*{numeroserie}">
+                        <input type="text" class="form-control" name ="numeroserie">
                     </div>
                     <div class="mb-3">
                         <label for="sede" class="form-label">Sede</label>
@@ -53,7 +52,7 @@
                     </div>
 
                     <a th:href="@{'/inventario'}" class="btn btn-danger">Cancelar</a>
-                    <button type="submit" class="btn btn-primary">Actualizar</button>
+                    <button type="submit" class="btn btn-primary">Registrar Inventario</button>
                 </form>
             </div>
 

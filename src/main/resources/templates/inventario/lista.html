@@ -32,9 +32,9 @@
                         <td th:text="${inventario.nombre}"></td>
                         <td th:text="${inventario.numeroserie}"></td>
                         <td th:text="${inventario.estado}"></td>
-                        <td><a class="btn btn-primary" th:href="@{'/inventario/editar' + '?id=' + ${inventario.id}}">Editar</a>
+                        <td><a class="btn btn-primary" th:href="@{'/inventario/edit' + '?id=' + ${inventario.id}}">Editar</a>
                         </td>
-                        <td><a class="btn btn-danger" th:href="@{'/inventario/borrar' + '?id=' + ${inventario.id}}">Borrar</a>
+                        <td><a class="btn btn-danger" th:href="@{'/inventario/delete' + '?id=' + ${inventario.id}}">Borrar</a>
                         </td>
                     </tr>
                 </table>
