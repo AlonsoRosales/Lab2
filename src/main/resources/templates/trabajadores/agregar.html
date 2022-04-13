@@ -31,7 +31,7 @@
             </div>
             <div class="mb-3">
                 <label for="idsede" class="form-label">Sede</label>
-                <select name="idsede" id="idsede">
+                <select class="form-select" name="idsede" id="idsede">
                     <option th:each="sede : ${listaSedes}" th:value="${sede.id}" th:text="${sede.nombreSede}"></option>
                 </select>
             </div>
